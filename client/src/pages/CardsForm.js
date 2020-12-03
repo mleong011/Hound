@@ -9,18 +9,7 @@ class CardsForm extends React.Component {
 		content: "",
 	};
 
-	contentChanged = (event) => {
-		this.setState({
-			content: event.target.value,
-		});
-	};
-	constructor(props) {
-		super(props);
-		this.state = { trackingNum: "" };
-	}
-	handleChange = (event) => {
-		this.setState({ trackingNum: event.target.value });
-	};
+
 	//will change save post into pull info from database
 	pullInfo = (event) => {
 		fetch("/api/posts/", {
