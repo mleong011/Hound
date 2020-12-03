@@ -101,6 +101,17 @@ export class SigninPage extends Component {
 								></GoogleLogin>
 							)}
 						</div>
+                        <br />
+          {this.state.isLogined ? (
+            <h5>
+              Welcome {this.state.name}!
+              <br />
+              <img src={this.state.image} alt="profile picture"/>
+              <br /> 
+              Email: {this.state.email}
+              
+            </h5>
+          ) : null}
 					</div>
 				</div>
 			</div>
