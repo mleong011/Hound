@@ -7,6 +7,7 @@
 	background-color: green;
 	color: white;
 }
+
 body {
 	display: flex;
 	justify-content: center;
@@ -26,6 +27,11 @@ body {
 	height: 300px;
 	transform: translateY(-50px);
 }
+
+.txt {
+	background: green;
+	text-decoration: none;
+}
 .header {
 	font-size: 100px;
 }
@@ -40,21 +46,27 @@ body {
 .links {
 	margin-top: 20px;
 }
-.AccountLinks {
-	justify-content: space-around;
+Link {
 	text-decoration: none;
-	cursor: pointer;
 }
 .LoginButton {
 	margin-top: 20px;
-	width: 300px;
+	width: 200px;
 	padding: 20px;
 	border: 2px solid white;
 	background: white;
-	color: green;
+
 	font-weight: bold;
 	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 	cursor: pointer;
+}
+.LoginButton span {
+	background: white;
+	color: green;
+}
+
+.LoginButton svg {
+	background: white;
 }
 .search {
 	text-align: center;
@@ -62,6 +74,10 @@ body {
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -200%);
+}
+
+.search {
+	width: 450px;
 }
 .saveBtn {
 	margin-top: 14px;

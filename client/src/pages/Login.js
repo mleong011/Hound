@@ -13,10 +13,18 @@ function Login() {
 				Login
 			</button>
 			<div className="links">
-				<Link className="AccountLinks" to="/sign-up">
+				<Link
+					className="AccountLinks"
+					style={{ textDecoration: "none" }}
+					to="/sign-up"
+				>
 					Create Account /
 				</Link>
-				<Link className="AccountLinks" to="/get-password">
+				<Link
+					className="AccountLinks"
+					to="/get-password"
+					style={{ textDecoration: "none" }}
+				>
 					<span> Forgot Password</span>
 				</Link>
 			</div>
