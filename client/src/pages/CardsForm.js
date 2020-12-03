@@ -9,7 +9,6 @@ class CardsForm extends React.Component {
 		content: "",
 	};
 
-
 	//will change save post into pull info from database
 	pullInfo = (event) => {
 		fetch("/api/posts/", {
@@ -60,8 +59,9 @@ class CardsForm extends React.Component {
 					type="text"
 					placeholder="Search your tracking number here..."
 					value={this.state.trackingNum}
-					size="80"
 					className="form-control mr-3 rounded"
+					size="50"
+					maxLength="30"
 					onChange={this.contentChanged}
 				/>
 				<button className="saveBtn btn btn-primary" onClick={this.pullInfo}>
