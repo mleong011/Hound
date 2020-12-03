@@ -84,6 +84,7 @@ export class SigninPage extends Component {
 							{this.state.isLogined ? (
 								<GoogleLogout
 									clientId={CLIENT_ID}
+									className="LoginButton"
 									buttonText="Logout"
 									onLogoutSuccess={this.logout}
 									onFailure={this.handleLogoutFailure}
@@ -114,7 +115,7 @@ export class SigninPage extends Component {
 							<h5>
 								Welcome {this.state.name}!
 								<br />
-								<img src={this.state.image} alt="profile picture" />
+								<img src={this.state.image} alt="profile" />
 								<br />
 								Email: {this.state.email}
 							</h5>
