@@ -7,11 +7,11 @@ const app = express();
 const expressSession = require('express-session'); //manages the session cookie
 const passport= require('./middlewares/authentication');
 const PORT = process.env.PORT || 8000;
-
+require('dotenv').config()
 
 // this lets us parse 'application/json' content in http requests
 app.use(bodyParser.json())
-
+console.log("SESSION SECRET:  ", process.env.SESSION_SECRET);
 // setup passport and session cookies
 app.use(expressSession({ 
   secret: process.env.SESSION_SECRET, 
@@ -39,7 +39,7 @@ if(process.env.NODE_ENV==='production') {
 
 // update DB tables based on model updates. Does not handle renaming tables/columns
 // NOTE: toggling this to true drops all tables (including data)
-db.sequelize.sync({ force: false });
+db.sequelize.sync({ force: true });
 
 // start up the server
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));

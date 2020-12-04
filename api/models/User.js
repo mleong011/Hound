@@ -15,9 +15,14 @@ module.exports = (sequelize, DataTypes) => {
       },
       validate: {
         isEmail: true,
-      }
-      }
-  }, {
+      },
+      
+      },
+      accessToken: DataTypes.STRING,
+  }, 
+ 
+  
+  {
     sequelize,
     modelName: 'User',
   });
