@@ -8,7 +8,7 @@
  const auth = {
     isAuthenticated: false,
     authenticate(email, name, accessToken) {
-      return fetch('/api/auth/login', { 
+      return fetch('/auth/login/', { 
         method: 'POST', //calls api
         body: JSON.stringify({ email, name, accessToken }),
         headers: {

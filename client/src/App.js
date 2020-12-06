@@ -6,6 +6,7 @@ import CardsForm from "./pages/CardsForm";
 import GetPassword from "./pages/GetPassword";
 import SigninPage from "./pages/SigninPage";
 import SignUp from "./pages/SignUp";
+import Home from "./pages/Home";
 
 class App extends React.Component {
 	render() {
@@ -16,6 +17,7 @@ class App extends React.Component {
 					<Route path="/sign-up" component={SignUp} />
 					<Route path="/get-password" component={GetPassword} />
 					<Route path="/search" component={CardsForm} />
+					<Route path="/home" component={Home}/>
 					<Route path="/" component={SigninPage} />
 				</Switch>
 			</Router>
