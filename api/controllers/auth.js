@@ -5,8 +5,8 @@ const router = require('express').Router();
 const keys = require('../middlewares/keys');
 
 
-
- router.post('/login', (req, res) => {
+// /login
+ router.post('/', (req, res) => {
   console.log("POST body: ", req.body);
    User.create({
      email: req.body.email,

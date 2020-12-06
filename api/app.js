@@ -7,7 +7,12 @@ const app = express();
 const expressSession = require('express-session'); //manages the session cookie
 const passport= require('./middlewares/authentication');
 const PORT = process.env.PORT || 8000;
-require('dotenv').config()
+require('dotenv').config();
+
+const cors = require('cors');
+const authRoutes = require("./controllers");
+
+app.use(cors());
 
 // this lets us parse 'application/json' content in http requests
 app.use(bodyParser.json())
@@ -25,7 +30,7 @@ const logFormat = process.env.NODE_ENV==='production' ? 'combined' : 'dev';
 app.use(morgan(logFormat));
 
 // this mounts controllers/index.js at the route `/api`
-app.use('/api', require('./controllers'));
+app.use('/api', authRoutes);
 
 // for production use, we serve the static react build folder
 if(process.env.NODE_ENV==='production') {
