@@ -35,12 +35,13 @@ const SCOPES = ['https://www.googleapis.com/auth/gmail.readonly','https://www.go
 
 //this is /googlelogin
 router.post('/', (req, res) => {
-    //console.log(req.body);
+    // console.log(req.body);
     const {tokenId} = req.body;
-    client.verifyIdToken({idToken: tokenId, audience: "158674415075-1r58o2988bebvq9vjitmgbqtj4udralh.apps.googleusercontent.com"}).then(response => {
+    client.verifyIdToken({idToken: tokenId.tokenId, audience: "158674415075-1r58o2988bebvq9vjitmgbqtj4udralh.apps.googleusercontent.com"}).then(response => {
         //return object payload
         const {email_verified, name, email} = response.payload;
         console.log("******RESPONSE PAYLOAD*******", response.payload);
+        
         if(email_verified) {
             //if logged in with email before, use that user, otw create new user:
             User.findOne({where: {email}}).then((err, user)=>{
@@ -59,10 +60,12 @@ router.post('/', (req, res) => {
                         User.create({
                             email: email,
                             name: name,
+                            accessToken: tokenId.accessToken,
                         }).then( newuser => {
                             res.status(201).json(newuser);
                         })
                         .catch(err => {
+                            console.log(err);
                             res.status(400).json(err);
                             
                         });
