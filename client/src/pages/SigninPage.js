@@ -109,8 +109,8 @@ export class SigninPage extends Component {
 			axios({
 				method: "POST",
 				url: "http://localhost:8000/api/googlelogin",
-				data: { tokenId: response }, //UNCOMMENT
-				//data: {code: response.code} //send tokencode to
+				//data: {tokenId: response} //UNCOMMENT
+				data: { code: response.code }, //send tokencode to
 			})
 				.then((response) => {
 					//if login success will return here a message from our rest api
@@ -200,6 +200,29 @@ export class SigninPage extends Component {
 						) : null}
 					</div>
 				</div>
+
+				<h2>Login with google</h2>
+				{this.state.isLogined ? (
+					<GoogleLogout
+						clientId={CLIENT_ID}
+						className="LoginButton"
+						buttonText="Logout"
+						onLogoutSuccess={this.logout}
+						onFailure={this.handleLogoutFailure}
+					></GoogleLogout>
+				) : (
+					<GoogleLogin
+						clientId={CLIENT_ID}
+						buttonText="Login with Google"
+						onSuccess={responseGoogle}
+						onFailure={this.handleLoginFailure}
+						cookiePolicy={"single_host_origin"}
+						//responseType="code,token"
+
+						responseType="code"
+						scope="https://www.googleapis.com/auth/gmail.readonly"
+					/>
+				)}
 			</div>
 		);
 	}
