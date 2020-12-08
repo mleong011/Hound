@@ -9,12 +9,15 @@
 }
 
 body {
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	min-height: 100vh;
 	color: white;
 	background: green;
+}
+.centered {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 .loginForm {
 	border-radius: 5px;
@@ -26,6 +29,28 @@ body {
 	flex-direction: column;
 	height: 300px;
 	transform: translateY(-50px);
+}
+
+.card-body {
+	background: #f8f9fa;
+}
+.row.justify-content-center {
+	padding-top: 30px;
+}
+.logo {
+	background: green;
+	color: white;
+}
+h1 {
+	background: #f8f9fa;
+	color: green;
+}
+h2 {
+	background: #f8f9fa;
+	color: green;
+}
+.App {
+	text-align: center;
 }
 
 .txt {
@@ -49,13 +74,13 @@ body {
 Link {
 	text-decoration: none;
 }
+
 .LoginButton {
 	margin-top: 20px;
 	width: 200px;
 	padding: 20px;
 	border: 2px solid white;
 	background: white;
-
 	font-weight: bold;
 	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 	cursor: pointer;
@@ -83,6 +108,9 @@ Link {
 	margin-top: 14px;
 	background-color: white !important;
 	color: green !important;
+}
+.link {
+	background: white;
 }
 
 #logo {
