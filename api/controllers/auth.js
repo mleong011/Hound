@@ -4,7 +4,6 @@
 //  const {google} = require('googleapis');
 // const keys = require('../middlewares/keys');
 
-
 // // /login
 //  router.post('/', (req, res) => {
 //   console.log("POST body: ", req.body);
@@ -27,26 +26,24 @@
 //          //console.log("MESSAGE: ", gmail.users.messages );
 //          console.log("USER ID: ", "102201229648850837598" );
 //         //  user.userId
-//          gmail.users.messages.list({ 
-//            'userId': "102201229648850837598", 
+//          gmail.users.messages.list({
+//            'userId': "102201229648850837598",
 //           //  'maxResults': 2,
 //            //q: query
 //            })
 //            .then((err, res) => {
-             
+
 //             console.log("DATA", res.data);
 //              res.send(res.data);
 
 //            });
-      
+
 //      })
 //      .catch((err) => {
 //        console.log("ERROR ", err);
 //        res.status(400).json({ msg: 'Failed Signup', err });
 //      });
 //  });
-
-
 
 //  router.post('/logout', (req, res) => {
 //    req.logout(); //erases session cookie
@@ -72,6 +69,5 @@
 // //  })
 // //  })
 // //  });
-
 
 //  module.exports = router;
