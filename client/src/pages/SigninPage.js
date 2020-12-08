@@ -200,29 +200,6 @@ export class SigninPage extends Component {
 						) : null}
 					</div>
 				</div>
-
-				<h2>Login with google</h2>
-				{this.state.isLogined ? (
-					<GoogleLogout
-						clientId={CLIENT_ID}
-						className="LoginButton"
-						buttonText="Logout"
-						onLogoutSuccess={this.logout}
-						onFailure={this.handleLogoutFailure}
-					></GoogleLogout>
-				) : (
-					<GoogleLogin
-						clientId={CLIENT_ID}
-						buttonText="Login with Google"
-						onSuccess={responseGoogle}
-						onFailure={this.handleLoginFailure}
-						cookiePolicy={"single_host_origin"}
-						//responseType="code,token"
-
-						responseType="code"
-						scope="https://www.googleapis.com/auth/gmail.readonly"
-					/>
-				)}
 			</div>
 		);
 	}
