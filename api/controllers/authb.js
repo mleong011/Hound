@@ -9,25 +9,25 @@ const client = new OAuth2Client("158674415075-1r58o2988bebvq9vjitmgbqtj4udralh.a
 
 //uncomment for auth code -> token
 const oauth2client = new google.auth.OAuth2(
-    process.env.GOOGLE_CLIENT_ID, process.env.GOOGLE_CLIENT_SECRET, process.env.REDIRECT_URIS
+    process.env.GOOGLE_CLIENT_ID, process.env.GOOGLE_CLIENT_SECRET, 'http://localhost:3000/auth/google/callback'
 );
 
 console.log("clientid: ", process.env.GOOGLE_CLIENT_ID);
 console.log('client secret: ', process.env.GOOGLE_CLIENT_SECRET);
 console.log('');
 
-const gmail_client_secret = {
-    "installed": {
-        "client_id": process.env.GOOGLE_CLIENT_ID,
-		"project_id": process.env.PROJECT_ID,
-		"auth_uri": process.env.AUTH_URI,
-		"token_uri": process.env.TOKEN_URI,
-		"auth_provider_x509_cert_url": process.env.AUTH_PROVIDER_X509_CERT_URL,
-		"client_secret": process.env.GOOGLE_CLIENT_SECRET,
-		"redirect_uris": process.env.REDIRECT_URIS
+// const gmail_client_secret = {
+//     "installed": {
+//         "client_id": process.env.GOOGLE_CLIENT_ID,
+// 		"project_id": process.env.PROJECT_ID,
+// 		"auth_uri": process.env.AUTH_URI,
+// 		"token_uri": process.env.TOKEN_URI,
+// 		"auth_provider_x509_cert_url": process.env.AUTH_PROVIDER_X509_CERT_URL,
+// 		"client_secret": process.env.GOOGLE_CLIENT_SECRET,
+// 		"redirect_uris": process.env.REDIRECT_URIS
 
-    }
-}
+//     }
+// }
 
 const SCOPES = ['https://www.googleapis.com/auth/gmail.readonly','https://www.googleapis.com/auth/gmail.modify',
 'https://www.googleapis.com/auth/gmail.compose','https://www.googleapis.com/auth/gmail.send'];
@@ -45,9 +45,15 @@ router.post('/', (req, res) => {
 
         // uncomment exchange auth code for tokens
         const {code} = req.body;
-        const {tokens} = oauth2client.getToken(code, (res, tokens)=>{console.log("these are the tokens: ", tokens)});
+        console.log("THIS IS THE CODE: " + code);
+        // const {tokens} = oauth2client.getToken(code, (res, tokens)=>{console.log("these are the tokens: ", tokens)});
+
+        oauth2client.getToken(code, (res, tokens)=>{
+            console.log("these are the tokens: ", tokens, res)
+            oauth2client.setCredentials(tokens);
+        });
+
         
-        oauth2client.setCredentials(tokens);
         
         
     //     if(email_verified) {
