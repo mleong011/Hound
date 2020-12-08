@@ -149,6 +149,7 @@ export class SigninPage extends Component {
 						<div>
 							{" "}
 							<h1 id="logo">Hound</h1>
+							<p>Online Shipment Tracker</p>
 							<div className="txt col-sm-12">Login With Google to Begin</div>
 							{/* {this.state.isLogined ? (
 								<GoogleLogout
@@ -170,17 +171,16 @@ export class SigninPage extends Component {
 								></GoogleLogin>
 							)} */}
 						</div>
-                        <br />
-          {this.state.isLogined ? (
-            <h5>
-              Welcome {this.state.name}!
-              <br />
-              <img src={this.state.image} alt="profile picture"/>
-              <br /> 
-              Email: {this.state.email}
-              
-            </h5>
-          ) : null}
+						<br />
+						{this.state.isLogined ? (
+							<h5>
+								Welcome {this.state.name}!
+								<br />
+								<img src={this.state.image} alt="profile picture" />
+								<br />
+								Email: {this.state.email}
+							</h5>
+						) : null}
 					</div>
 				</div>
 
