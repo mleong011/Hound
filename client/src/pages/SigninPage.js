@@ -27,7 +27,7 @@ export class SigninPage extends Component {
 		this.logout = this.logout.bind(this);
 		this.handleLogoutFailure = this.handleLogoutFailure.bind(this);
 
-		//this.signup = this.signup.bind(this);
+
 	}
 
 	logout(response) {
@@ -58,37 +58,10 @@ export class SigninPage extends Component {
 		alert("Failed to log out");
 	}
 
-	//rerouting?
-	// signup(res){
-	// 	console.log("email: ", res.wt.cu);
-	// 	let postData = { name: res.wt.ad, email: res.wt.cu, token: res.xc.access_token}
-	// 	postdata(postData).then((result) => {
-	// 		let responseJson = result;
-	// 		if(responseJson.userData){
-	// 			sessionStorage.setItem('userData', JSON.stringify(responseJson));
-	// 			this.setState({redirectToReferrer: true}); //redirect to
-	// 		}
-	// 	});
-	// }
+
 
 	render() {
-		// const responseGoogle = (response) => {
-		// 	if (response.accessToken) {
-		// 		this.setState((state) => ({
-		// 			isLogined: true,
-		// 			accessToken: response.accessToken,
-		// 			name: response.profileObj.name,
-		// 			email: response.profileObj.email,
-		// 			image: response.profileObj.imageUrl,
-		// 			userId: response.profileObj.googleId,
-		// 		}));
-		// 	}
-		// 	console.log("response is", response);
-		// 	var res = response.profileObj;
-		// 	console.log("res is:", res);
-		// 	this.login(response);
-		// };
-		// if(this.state.isLogined) return <Redirect to="/" />;
+
 
 		const responseGoogle = (response) => {
 			console.log("responsegoogleB response: ", response);
@@ -162,10 +135,10 @@ export class SigninPage extends Component {
 									onSuccess={responseGoogle}
 									onFailure={this.handleLoginFailure}
 									cookiePolicy={"single_host_origin"}
-									responseType="code,token"
+									//responseType="code,token"
 									to="/home"
-									// responseType="code"
-									// scope = "https://www.googleapis.com/auth/gmail.readonly"
+									responseType="code"
+									scope = "https://www.googleapis.com/auth/gmail.readonly"
 								/>
 							)}
 							{/* {this.state.isLogined ? (
