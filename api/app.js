@@ -5,7 +5,7 @@ const path = require('path');
 const db = require('./models');
 const app = express();
 const expressSession = require('express-session'); //manages the session cookie
-const passport= require('./middlewares/authentication');
+//const passport= require('./middlewares/authentication');
 const PORT = process.env.PORT || 8000;
 require('dotenv').config();
 
@@ -22,8 +22,8 @@ app.use(expressSession({
   secret: process.env.SESSION_SECRET, 
   resave: false,
   saveUninitialized: true }));
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 // add http request logging to help us debug and audit app use
 const logFormat = process.env.NODE_ENV==='production' ? 'combined' : 'dev';

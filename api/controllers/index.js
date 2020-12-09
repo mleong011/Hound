@@ -5,7 +5,6 @@ const router = express.Router();
 const userController = require('./users.js');
 const orderController = require('./orders.js');
 const shipmentController = require('./shipments.js');
-//const authController = require('./auth');
 const googlelogin = require("./authb.js");
 
 
@@ -15,9 +14,6 @@ const googlelogin = require("./authb.js");
 router.use('/users', userController);
 router.use('/orders', orderController);
 router.use('/shipments', shipmentController);
-//router.use('/auth', authController);
-
-
 router.use('/googlelogin', googlelogin);
 
 

@@ -19,6 +19,8 @@ module.exports = (sequelize, DataTypes) => {
       
       },
       accessToken: DataTypes.STRING,
+      refreshToken: DataTypes.STRING,
+      expiry_date: DataTypes.DATE,
   }, 
  
   
