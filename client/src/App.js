@@ -3,10 +3,8 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import CardsForm from "./pages/CardsForm";
-import GetPassword from "./pages/GetPassword";
-import SigninPage from "./pages/SigninPage";
-import SignUp from "./pages/SignUp";
 import Home from "./pages/Home";
+import SigninPage from "./pages/SigninPage";
 
 class App extends React.Component {
 	render() {
@@ -14,10 +12,8 @@ class App extends React.Component {
 			<Router>
 				<Switch>
 					{/* Home route must be put last  or other components wont render */}
-					<Route path="/sign-up" component={SignUp} />
-					<Route path="/get-password" component={GetPassword} />
 					<Route path="/search" component={CardsForm} />
-					<Route path="/home" component={Home}/>
+					<Route path="/home" component={Home} />
 					<Route path="/" component={SigninPage} />
 				</Switch>
 			</Router>

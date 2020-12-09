@@ -1,20 +1,24 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const { User } = require('../models');
-const{OAuth2Client} = require('google-auth-library');
-const {google} = require('googleapis'); //uncomment for authcode-> tokens
+const { User } = require("../models");
+const { OAuth2Client } = require("google-auth-library");
+const { google } = require("googleapis"); //uncomment for authcode-> tokens
 
 //client id
-const client = new OAuth2Client("158674415075-1r58o2988bebvq9vjitmgbqtj4udralh.apps.googleusercontent.com");
+const client = new OAuth2Client(
+	"158674415075-1r58o2988bebvq9vjitmgbqtj4udralh.apps.googleusercontent.com"
+);
 
 //uncomment for auth code -> token
 const oauth2client = new google.auth.OAuth2(
-    process.env.GOOGLE_CLIENT_ID, process.env.GOOGLE_CLIENT_SECRET, 'http://localhost:3000'
+	process.env.GOOGLE_CLIENT_ID,
+	process.env.GOOGLE_CLIENT_SECRET,
+	"http://localhost:3000"
 );
 console.log("clientid: ", process.env.GOOGLE_CLIENT_ID);
 console.log('client secret: ', process.env.GOOGLE_CLIENT_SECRET);
 
-
+	
 //this is /googlelogin
 router.post('/', (req, resp) => {
     // console.log(req.body);
@@ -22,7 +26,6 @@ router.post('/', (req, resp) => {
     const {code} = req.body;
 
    
-    
     oauth2client.getToken(code, (res, tokens)=>{
         oauth2client.setCredentials(tokens);
         //token response
@@ -87,6 +90,5 @@ router.post('/googlelogin', (req, res) => {
     // .then(users => res.json(users));
     console.log(res);
 });
-
 
 module.exports = router;

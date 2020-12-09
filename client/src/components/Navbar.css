@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+* {
+	font-family: "Varela Round", sans-serif;
+}
+#basic-navbar-nav.navbar-collapse.collapse {
+	background: #f8f9fa;
+}
+.navbar-light .navbar-brand {
+	color: green;
+}
+.navbar-light .navbar-nav .nav-link {
+	background: #f8f9fa;
+	color: green;
+}
