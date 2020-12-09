@@ -43,15 +43,10 @@ router.post('/', (req, resp) => {
         
             if(email_verified) {
                 //if logged in with email before, use that user, otw create new user:
-                User.findOne({where: {email}}).then((err, user)=>{
-                    if(err){
-                        return res.status(400).json({
-                            error: "something went wrong."
-                        })
-                    } else {
+                User.findOne({where: {email}}).then(user=>{
                         if(user){
                             //user exist in database
-                            res.json(user);
+                            resp.json(user);
   
                         }else {
                             //does not exist in db
@@ -59,20 +54,17 @@ router.post('/', (req, resp) => {
                                 email: email,
                                 name: name,
                                 accessToken: tokens.access_token,
-                                //refreshToken: tokens.refresh_token,
-                                //expiry_date: tokens.expiry_date,
+                                refreshToken: tokens.refresh_token,
+                                expiry_date: tokens.expiry_date,
                             }).then( newuser => {
                                 resp.status(201).json(newuser);
                                 //return(newuser);
                             })
                             .catch(err => {
                                 console.log(err);
-                                res.status(400).json(err);
-                                
+                                resp.status(400).json(err);
                             });
-
                         }
-                    }
                 })
             }
             //console.log("i did return ", req);
