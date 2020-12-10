@@ -7,7 +7,10 @@ module.exports = (sequelize, DataTypes) => {
 
   Order.init({
     trackingnumber: DataTypes.STRING,
-    provider: DataTypes.STRING
+    provider: DataTypes.STRING,
+    snippet: DataTypes.STRING,
+    link: DataTypes.STRING,
+    from: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Order',

@@ -87,7 +87,7 @@ function getAuth(auth){
 //     "userId": 'me',
 //     "maxResults": 2,
 //     q: query
-//   })
+//   });
 
 //   .then(function(response) {
 //     let mails = response.data.messages;
