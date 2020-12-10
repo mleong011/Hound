@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createFactory } from "react";
 import { Card } from "react-bootstrap";
 import "../App.css";
 import Loading from "../components/Loading";
@@ -10,17 +10,18 @@ function OrderCards(props) {
 			border="dark"
 			// key={idx}
 			// text={variant.toLowerCase() === 'light' ? 'dark' : 'white'}
-			style={{ width: "40rem" }}
+			style={{ width: "70rem" }}
 			className=" centered mb-2 CardBorder"
 		>
 			<Card.Header className="headerColor">
-				<h4>Vendor E-Mail: {props.data.from}</h4>
-				<h4>Order Date: {props.data.date}</h4>
+				<h4><strong>Vendor E-Mail: </strong> {props.data.from}</h4>
+				<h4><strong>Order Date: </strong> {props.data.date}</h4>
 			</Card.Header>
 			<Card.Body>
-				<h4>Snippet: {props.data.snippet}</h4>
-				<a target="_blank" href={props.data.link}>Link: {props.data.link}</a>
+				<h4><strong>Snippet: </strong>{props.data.snippet}</h4>
+				
 			</Card.Body>
+			<Card.Footer className="footer"><a target="_blank" href={props.data.link}>Go to Order Email</a></Card.Footer>
 		</Card>
 	);
 }

@@ -20,6 +20,9 @@
 	border-radius: 25px;
 }
 
+.footer{
+	color:black;
+}
 body {
 	min-height: 100vh;
 	/* color: white; */
