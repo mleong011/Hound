@@ -9,7 +9,8 @@ module.exports = (sequelize, DataTypes) => {
     trackingnumber: DataTypes.STRING,
     snippet: DataTypes.STRING,
     link: DataTypes.STRING,
-    from: DataTypes.STRING
+    from: DataTypes.STRING,
+    date: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Order',
