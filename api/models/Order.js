@@ -25,8 +25,6 @@ module.exports = (sequelize, DataTypes) => {
       onUpdate: 'CASCADE',
       hooks: true
     })
-
   }
-
   return Order;
 };

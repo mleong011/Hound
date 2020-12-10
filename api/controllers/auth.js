@@ -87,7 +87,7 @@ function checkForMails(oauth){
      console.log("in check for mails");
      console.log("oauth client in check for mails", oauth);
      const gmail = google.gmail({version: 'v1', auth: oauth});
-     const query = 'Details Order #';
+     const query = 'Order tracking';
      gmail.users.messages.list({
       "userId": 'me',
       "maxResults": 10,
