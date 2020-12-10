@@ -11,6 +11,7 @@ class Home extends React.Component {
 			redirectToReferrer: false,
 			name: "",
 			email: "",
+			profile:"",
 		};
 	}
 
@@ -19,6 +20,7 @@ class Home extends React.Component {
 		console.log("DATAAAA", data);
 		this.setState({ name: data.data.name });
 		this.setState({ email: data.data.email });
+		this.setState({ profile: data.data.profile});
 	}
 
 	render() {
@@ -32,7 +34,7 @@ class Home extends React.Component {
 
 		return (
 			<div>
-				<NavbarComp message={this.state.name} />
+				<NavbarComp message={this.state.name} profilePicture={this.state.profile} />
 				<CardListPage />
 			</div>
 		);

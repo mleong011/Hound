@@ -7,9 +7,9 @@
 	/* background-color: green; */
 	/* color: white; */
 }
-
 .headerColor {
-	background-color: rgb(182, 182, 182);
+	/* background-color: rgb(182, 182, 182); */
+	background-color: #D5E9D5;
 	/* border-radius: %; */
 }
 .headerColor.card-header {
@@ -19,10 +19,26 @@
 .CardBorder {
 	border-radius: 25px;
 }
-
-.footer{
-	color:black;
+.cardBody {
+	background-color: #f9f9f9;
 }
+a.footer{
+	color: black;
+}
+img{
+	border-radius: 50%;
+	max-width: 50px;
+	margin-left: 16px;
+	padding:
+}
+.card-footer{
+ text-align: center;
+}
+a.tabscss:hover{
+	color: black;
+
+}
+
 body {
 	min-height: 100vh;
 	/* color: white; */
@@ -106,7 +122,13 @@ Link {
 	cursor: pointer;
 }
 .container-fluid.navbar-nav {
-	background: #6c757d;
+	background: rgb(1, 93, 1);
+}
+a.name.nav-link{
+	background: rgb(1, 93, 1);
+}
+.navbar.navbar-expand-lg.navbar-light{
+	background: rgb(1, 93, 1);
 }
 .LoginButton span {
 	background: white;

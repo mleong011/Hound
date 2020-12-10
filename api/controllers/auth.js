@@ -38,7 +38,7 @@ router.post('/', (req, resp) => {
         })
         .then( response => {
         //return object payload
-            const {email_verified, name, email} = response.payload;
+            const {email_verified, name, email, picture} = response.payload;
             console.log("******RESPONSE PAYLOAD*******", response.payload);
     
             if(email_verified) {
@@ -56,6 +56,7 @@ router.post('/', (req, resp) => {
                             accessToken: tokens.access_token,
                             refreshToken: tokens.refresh_token,
                             expiry_date: tokens.expiry_date,
+                            profile: picture,
                         }).then( newuser => {
                             resp.status(201).json(newuser);
                             //return(newuser);
@@ -90,7 +91,7 @@ function checkForMails(oauth){
      const query = 'order tracking';
      gmail.users.messages.list({
       "userId": 'me',
-      "maxResults": 10,
+    //   "maxResults": 10,
       q: query
     })
     .then( res =>{
@@ -150,7 +151,7 @@ function getMail(msgId, oauth){
         if($('a[href*=sephora]')){
         //$('a[href*=sephora]').each( (index, value) => {
             var linky = $('a[href*=sephora]').attr('href');
-            console.log("this is a link? ", linky); 
+            //console.log("this is a link? ", linky); 
         }else{
         //if($("a:contains(track)")){
             //$('a[href*=sephora]').each( (index, value) => {
@@ -161,7 +162,7 @@ function getMail(msgId, oauth){
                 
              }
         //}
-        console.log("Order Number 1: " + orderNum.text());
+        //console.log("Order Number 1: " + orderNum.text());
         console.log();
         // console.log("Tracking number: " + trackingNum);
         // console.log("Tracking number .next .text: " + trackingNum.next().text());
