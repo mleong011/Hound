@@ -8,15 +8,15 @@ function OrderCards(props) {
 			<div className="row justify-content-center">
 				<div className="card col-6 pl-0 pr-0 mb-3">
 					<div className="card-header">
-						<h1>Vendor: {props.data.vendor}</h1>
-						<h1>Order Date: {props.data.orderdate}</h1>
+						<h4>Vendor: {props.data.vendor}</h4>
+						<h4>Order Date: {props.data.orderdate}</h4>
 					</div>
 
 					<div className="card-body">
-						<h2>Provider {props.data.provider}</h2>
-						<h2>Tracking Number: {props.data.trackingNum}</h2>
-						<h2>Status: {props.data.status}</h2>
-						<h2>ETA: {props.data.eta}</h2>
+						<h4>Provider {props.data.provider}</h4>
+						<h4>Tracking Number: {props.data.trackingNum}</h4>
+						<h4>Status: {props.data.status}</h4>
+						<h4>ETA: {props.data.eta}</h4>
 					</div>
 				</div>
 			</div>
