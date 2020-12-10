@@ -5,7 +5,7 @@ const router = express.Router();
 const userController = require('./users.js');
 const orderController = require('./orders.js');
 const shipmentController = require('./shipments.js');
-const googlelogin = require("./authb.js");
+const googlelogin = require("./auth.js");
 
 // Mount each controller under a specific route. These
 // will be prefixes to all routes defined inside the controller
