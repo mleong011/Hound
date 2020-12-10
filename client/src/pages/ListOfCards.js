@@ -1,26 +1,30 @@
 import React from "react";
+import { Card } from "react-bootstrap";
 import "../App.css";
 import Loading from "../components/Loading";
 
 function OrderCards(props) {
 	return (
-		<div className="container">
-			<div className="row justify-content-center">
-				<div className="card col-6 pl-0 pr-0 mb-3">
-					<div className="card-header">
-						<h4>Vendor: {props.data.vendor}</h4>
-						<h4>Order Date: {props.data.orderdate}</h4>
-					</div>
-
-					<div className="card-body">
-						<h4>Provider {props.data.provider}</h4>
-						<h4>Tracking Number: {props.data.trackingNum}</h4>
-						<h4>Status: {props.data.status}</h4>
-						<h4>ETA: {props.data.eta}</h4>
-					</div>
-				</div>
-			</div>
-		</div>
+		<Card
+			bg="light"
+			border="dark"
+			// key={idx}
+			// text={variant.toLowerCase() === 'light' ? 'dark' : 'white'}
+			style={{ width: "40rem" }}
+			className=" centered mb-2 CardBorder"
+		>
+			<Card.Header className="headerColor">
+				<h4>Vendor: {props.data.vendor}</h4>
+				<h4>Order Date: {props.data.orderdate}</h4>
+			</Card.Header>
+			<Card.Body>
+				{/* <div className="card-body"> */}
+				<h4>Provider: {props.data.provider}</h4>
+				<h4>Tracking Number: {props.data.trackingNum}</h4>
+				<h4>Status: {props.data.status}</h4>
+				<h4>ETA: {props.data.eta}</h4>
+			</Card.Body>
+		</Card>
 	);
 }
 class CardListPage extends React.Component {
