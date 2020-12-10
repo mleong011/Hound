@@ -24,8 +24,6 @@ export class SigninPage extends Component {
 		this.handleLoginFailure = this.handleLoginFailure.bind(this);
 		this.logout = this.logout.bind(this);
 		this.handleLogoutFailure = this.handleLogoutFailure.bind(this);
-
-
 	}
 
 	logout(response) {
@@ -77,8 +75,6 @@ export class SigninPage extends Component {
 				.catch((err) => {
 					console.log("ERROR OCCURED : ", err);
 				});
-
-
 		};
 
 		//redirect
@@ -87,7 +83,7 @@ export class SigninPage extends Component {
 		}
 
 		return (
-			<div className="App centered">
+			<div className="App centeredSignIn">
 				<div className="row"> </div>
 				<div className="row">
 					<div style={{ paddingTop: "20px" }} className="loginForm col-sm-12">
@@ -117,10 +113,9 @@ export class SigninPage extends Component {
 									//responseType="code,token"
 									to="/home"
 									responseType="code"
-									scope = "https://www.googleapis.com/auth/gmail.readonly"
+									scope="https://www.googleapis.com/auth/gmail.readonly"
 								/>
 							)}
-
 						</div>
 						<br />
 						{this.state.isLogined ? (
