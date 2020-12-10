@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import { GoogleLogin, GoogleLogout } from "react-google-login";
 import { Redirect } from "react-router-dom";
 import "../App.css";
-import auth from "../services/auth";
 
 const CLIENT_ID =
 	"158674415075-1r58o2988bebvq9vjitmgbqtj4udralh.apps.googleusercontent.com";
@@ -22,7 +21,6 @@ export class SigninPage extends Component {
 			accessToken: "",
 			image: "",
 		};
-		this.login = this.login.bind(this);
 		this.handleLoginFailure = this.handleLoginFailure.bind(this);
 		this.logout = this.logout.bind(this);
 		this.handleLogoutFailure = this.handleLogoutFailure.bind(this);
@@ -37,19 +35,6 @@ export class SigninPage extends Component {
 		}));
 	}
 
-	login = (response) => {
-		//response.preventDefault();
-		let { email, name, accessToken } = this.state;
-		auth
-			.authenticate(email, name, accessToken)
-			.then((user) => {
-				this.setState({ redirectToReferrer: true });
-			})
-			.catch((err) => {
-				this.setState({ failed: true });
-			});
-	};
-
 	handleLoginFailure(response) {
 		alert("Failed to log in");
 	}
@@ -58,11 +43,7 @@ export class SigninPage extends Component {
 		alert("Failed to log out");
 	}
 
-
-
 	render() {
-
-
 		const responseGoogle = (response) => {
 			console.log("responsegoogleB response: ", response);
 
@@ -97,9 +78,7 @@ export class SigninPage extends Component {
 					console.log("ERROR OCCURED : ", err);
 				});
 
-			//this.signup(response);
 
-			//this.login(response);
 		};
 
 		//redirect
@@ -141,25 +120,7 @@ export class SigninPage extends Component {
 									scope = "https://www.googleapis.com/auth/gmail.readonly"
 								/>
 							)}
-							{/* {this.state.isLogined ? (
-								<GoogleLogout
-									clientId={CLIENT_ID}
-									className="LoginButton"
-									buttonText="Logout"
-									onLogoutSuccess={this.logout}
-									onFailure={this.handleLogoutFailure}
-								></GoogleLogout>
-							) : (
-								<GoogleLogin
-									className="LoginButton"
-									clientId={CLIENT_ID}
-									buttonText="Login with Google"
-									onSuccess={responseGoogle}
-									onFailure={this.handleLoginFailure}
-									cookiePolicy={"single_host_origin"}
-									responseType="code,token"
-								></GoogleLogin>
-							)} */}
+
 						</div>
 						<br />
 						{this.state.isLogined ? (
