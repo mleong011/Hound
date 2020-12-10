@@ -1,5 +1,5 @@
 import React, { createFactory } from "react";
-import { Card } from "react-bootstrap";
+import { Card, Tabs, Tab } from "react-bootstrap";
 import "../App.css";
 import Loading from "../components/Loading";
 
@@ -15,13 +15,13 @@ function OrderCards(props) {
 		>
 			<Card.Header className="headerColor">
 				<h4><strong>Vendor E-Mail: </strong> {props.data.from}</h4>
-				<h4><strong>Order Date: </strong> {props.data.date}</h4>
+				<h4><strong>Notification Date: </strong> {props.data.date}</h4>
 			</Card.Header>
-			<Card.Body>
+			<Card.Body className="cardBody">
 				<h4><strong>Snippet: </strong>{props.data.snippet}</h4>
 				
 			</Card.Body>
-			<Card.Footer className="footer"><a target="_blank" href={props.data.link}>Go to Order Email</a></Card.Footer>
+			<Card.Footer ><a className="footer" target="_blank" href={props.data.link}>Go to Order Email</a></Card.Footer>
 		</Card>
 	);
 }
@@ -51,9 +51,28 @@ class CardListPage extends React.Component {
 
 		return (
 			<div>
+			<Tabs defaultActiveKey="home" id="uncontrolled-tab-example" className="tabscss">
+			<Tab eventKey="home" title="All Orders" >
 				{this.state.orderResults.map((item, index) => {
 					return <OrderCards data={item} key={index} />;
 				})}
+			</Tab>
+			<Tab eventKey="Amazon" title="Amazon">
+				{this.state.orderResults.filter(order =>
+				order.from === '"Amazon.com" <shipment-tracking@amazon.com>')
+				.map((item, index) => {
+					return <OrderCards data={item} key={index} />;
+				})}
+			</Tab>
+			<Tab eventKey="RockAuto" title="RockAuto" >
+				{this.state.orderResults.filter(order =>
+					order.from === 'RockAuto Customer Service <service@rockauto.com>')
+					.map((item, index) => {
+						return <OrderCards data={item} key={index} />;
+					})}
+			</Tab>
+			</Tabs>
+				
 				
 			</div>
 		);

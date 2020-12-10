@@ -36,13 +36,16 @@ class NavbarComp extends Component {
 			return <Redirect to={"/"} />;
 		}
 		return (
-			<Navbar bg="secondary" expand="lg">
-				<Navbar.Brand href="#home">Welcome</Navbar.Brand>
+			<Navbar expand="lg">
+				<Navbar.Brand href="#home">HOUND</Navbar.Brand>
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse id="basic-navbar-nav">
 					<Nav className="container-fluid">
 						<Nav.Link href="#home" className="name">
 							{this.props.message}
+						</Nav.Link>
+						<Nav.Link>
+							<img src={this.props.profilePicture} alt="profile"/>
 						</Nav.Link>
 						<GoogleLogout
 							clientId={CLIENT_ID}
