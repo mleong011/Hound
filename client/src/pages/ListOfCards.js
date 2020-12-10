@@ -19,7 +19,7 @@ function OrderCards(props) {
 			</Card.Header>
 			<Card.Body>
 				<h4>Snippet: {props.data.snippet}</h4>
-				<h4>Link: {props.data.link}</h4>
+				<a target="_blank" href={props.data.link}>Link: {props.data.link}</a>
 			</Card.Body>
 		</Card>
 	);
