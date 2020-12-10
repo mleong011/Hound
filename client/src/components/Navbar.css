@@ -3,12 +3,19 @@
 	font-family: "Varela Round", sans-serif;
 }
 #basic-navbar-nav.navbar-collapse.collapse {
-	background: #f8f9fa;
+	background: darkgray;
 }
 .navbar-light .navbar-brand {
-	color: green;
+	color: white;
+	font-weight: bolder;
+}
+Navbar {
+	background: ;
+}
+svg {
+	background: white;
 }
 .navbar-light .navbar-nav .nav-link {
-	background: #f8f9fa;
-	color: green;
+	background: #6c757d;
+	color: white;
 }
