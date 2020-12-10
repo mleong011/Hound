@@ -149,16 +149,16 @@ function checkForMails(oauth){
     })
     .then(function(res) {
         console.log("MESSAGE SNIPPET: ", res.data.snippet);
-        const email = 'https://mail.google.com/mail/#inbox/' + msgId;
-        console.log("LINK TO EMAIL: ", email);
+        const link = 'https://mail.google.com/mail/#inbox/' + msgId;
+        console.log("LINK TO EMAIL: ", link);
         console.log("FROM: ", res.data.payload.headers.find(x => x.name === 'From').value);
         console.log();
 
-        Order.findOne({where: {email}}).then(order => {
+        Order.findOne({where: {link}}).then(order => {
             if(!order){
                 Order.create({
                     snippet: res.data.snippet,
-                    link: email,
+                    link: link,
                     from: res.data.payload.headers.find(x => x.name === 'From').value
                 })
             }
