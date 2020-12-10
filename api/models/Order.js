@@ -26,14 +26,6 @@ module.exports = (sequelize, DataTypes) => {
       hooks: true
     })
 
-    //1-1: One Order has one set of Shipment Information
-    // Creates orderId on Shipping model and table
-    models.Order.hasOne(models.Shipment, {
-      foreignKey: {name: 'orderId'},
-      onDelete: 'CASCADE',
-      onUpdate: 'CASCADE',
-      hooks: true
-    });
   }
 
   return Order;
