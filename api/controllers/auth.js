@@ -87,7 +87,7 @@ function checkForMails(oauth){
      console.log("in check for mails");
      console.log("oauth client in check for mails", oauth);
      const gmail = google.gmail({version: 'v1', auth: oauth});
-     const query = 'Order tracking';
+     const query = 'order tracking';
      gmail.users.messages.list({
       "userId": 'me',
       "maxResults": 10,
@@ -121,6 +121,8 @@ function getMail(msgId, oauth){
         const link = 'https://mail.google.com/mail/#inbox/' + msgId;
         console.log("LINK TO EMAIL: ", link);
         console.log("FROM: ", res.data.payload.headers.find(x => x.name === 'From').value);
+        console.log("RECEIVED: ",res.data.payload.headers.find(x => x.name === 'Date').value );
+        
         console.log();
 
     Order.findOne({where: {link}}).then(order => {
@@ -128,7 +130,8 @@ function getMail(msgId, oauth){
             Order.create({
                 snippet: res.data.snippet,
                 link: link,
-                from: res.data.payload.headers.find(x => x.name === 'From').value
+                from: res.data.payload.headers.find(x => x.name === 'From').value,
+                date: res.data.payload.headers.find(x => x.name === 'Date').value
             })
         }
     })
@@ -149,15 +152,15 @@ function getMail(msgId, oauth){
             var linky = $('a[href*=sephora]').attr('href');
             console.log("this is a link? ", linky); 
         }else{
-        if($("a:contains(track)")){
-            // //$('a[href*=sephora]').each( (index, value) => {
+        //if($("a:contains(track)")){
+            //$('a[href*=sephora]').each( (index, value) => {
             //     var matchingElements = $("a:contains(track)");
             //      matchingElements.map(function(index, element) {
             //         console.log( $(element).attr('href'));
             //     //console.log("this is a link? ", linkyy); 
                 
              }
-        }
+        //}
         console.log("Order Number 1: " + orderNum.text());
         console.log();
         // console.log("Tracking number: " + trackingNum);
